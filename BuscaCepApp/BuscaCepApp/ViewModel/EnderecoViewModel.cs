@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Input;
+using BuscaCepApp.Api;
 using BuscaCepApp.Model;
 
 namespace BuscaCepApp.ViewModel
@@ -9,8 +10,10 @@ namespace BuscaCepApp.ViewModel
     {
         public ICommand BuscarCommand { get; set; }
 
-        private IObserver<Endereco> _endereco;
-        public IObserver<Endereco> Endereco
+        public string Cep { get; set; }
+
+        private Endereco _endereco;
+        public Endereco Endereco
         {
             get { return _endereco; }
             set
@@ -24,7 +27,8 @@ namespace BuscaCepApp.ViewModel
         {
             BuscarCommand = new Xamarin.Forms.Command(async () =>
             {
-                
+                var endereco = await ViaCepApi.GetAsync(Cep);
+                Endereco = endereco;
             });
         }
 

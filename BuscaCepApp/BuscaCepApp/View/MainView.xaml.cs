@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
+using BuscaCepApp.ViewModel;
 using Xamarin.Forms;
 
 namespace BuscaCepApp.View
@@ -13,6 +9,7 @@ namespace BuscaCepApp.View
         public MainView()
         {
             InitializeComponent();
+            BindingContext = new EnderecoViewModel();
         }
     }
 }
