@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Text;
 
 namespace BuscaCepApp.Model
 {
@@ -61,10 +62,20 @@ namespace BuscaCepApp.Model
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void OnPropertyChanged(string propertyName)
+        protected virtual void OnPropertyChanged(string propertyName)
         {
             var propertyChanged = PropertyChanged;
             propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public override string ToString()
+        {
+            var enderecoString = new StringBuilder();
+            enderecoString.AppendLine("CEP: " + Cep);
+            enderecoString.AppendLine(Logradouro);
+            enderecoString.AppendLine(Bairro);
+            enderecoString.AppendLine(Localidade + ", " + Uf);
+            return enderecoString.ToString();
         }
     }
 }
