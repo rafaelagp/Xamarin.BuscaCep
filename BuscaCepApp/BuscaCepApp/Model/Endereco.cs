@@ -4,8 +4,6 @@ namespace BuscaCepApp.Model
 {
     public class Endereco : INotifyPropertyChanged
     {
-        public int Id { get; set; }
-
         private string _cep;
         public string Cep
         {
@@ -13,7 +11,7 @@ namespace BuscaCepApp.Model
             set
             {
                 _cep = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_cep)));   
+                OnPropertyChanged(nameof(_cep));   
             }
         }
 
@@ -24,7 +22,7 @@ namespace BuscaCepApp.Model
             set
             {
                 _logradouro = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_logradouro)));
+                OnPropertyChanged(nameof(_logradouro));
             }
         }
 
@@ -35,7 +33,7 @@ namespace BuscaCepApp.Model
             set
             {
                 _bairro = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_bairro)));
+                OnPropertyChanged(nameof(_bairro));
             }
         }
 
@@ -46,7 +44,7 @@ namespace BuscaCepApp.Model
             set
             {
                 _localidade = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_localidade)));
+                OnPropertyChanged(nameof(_localidade));
             }
         }
 
@@ -57,10 +55,16 @@ namespace BuscaCepApp.Model
             set
             {
                 _uf = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(_uf)));
+                OnPropertyChanged(nameof(_uf));
             }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            var propertyChanged = PropertyChanged;
+            propertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

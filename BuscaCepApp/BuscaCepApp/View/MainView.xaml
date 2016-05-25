@@ -6,7 +6,8 @@
   <StackLayout Padding="20" Spacing="10">
 
     <Entry Text="{Binding Cep}" Placeholder="Digite o seu CEP" />
-    <Button Text="Buscar" Command="{Binding BuscarCommand}" />
+    <Button Text="Buscar" 
+            Command="{Binding BuscarCommand}" />
     <Label Text="{Binding Endereco}" />
 
   </StackLayout>
