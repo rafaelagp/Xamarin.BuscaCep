@@ -53,7 +53,7 @@ namespace BuscaCepApp.Model
         private string _uf;
         public string Uf
         {
-            get { return _logradouro; }
+            get { return _uf; }
             set
             {
                 _uf = value;

@@ -1,19 +1,17 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using System.Text;
 using System.Windows.Input;
 using BuscaCepApp.Api;
-using BuscaCepApp.Model;
 
 namespace BuscaCepApp.ViewModel
 {
     public class EnderecoViewModel : INotifyPropertyChanged
     {
         public ICommand BuscarCommand { get; set; }
-
         public string Cep { get; set; }
 
-        private Endereco _endereco;
-        public Endereco Endereco
+        private string _endereco;
+        public string Endereco
         {
             get { return _endereco; }
             set
@@ -28,7 +26,13 @@ namespace BuscaCepApp.ViewModel
             BuscarCommand = new Xamarin.Forms.Command(async () =>
             {
                 var endereco = await ViaCepApi.GetAsync(Cep);
-                Endereco = endereco;
+                
+                var enderecoString = new StringBuilder();
+                enderecoString.AppendLine("CEP: " + endereco.Cep);
+                enderecoString.AppendLine(endereco.Logradouro);
+                enderecoString.AppendLine(endereco.Bairro);
+                enderecoString.AppendLine(endereco.Localidade + ", " + endereco.Uf);
+                Endereco = enderecoString.ToString();
             });
         }
 

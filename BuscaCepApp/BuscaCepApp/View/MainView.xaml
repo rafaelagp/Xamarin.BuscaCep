@@ -5,13 +5,9 @@
 
   <StackLayout Padding="20" Spacing="10">
 
-    <Entry Text="{Binding Cep}" Placeholder="Digite o seu CEP"></Entry>
-    <Button Text="Buscar" Command="{Binding BuscarCommand}"></Button>
-    <Label Text="{Binding Endereco.Cep}"></Label>
-    <Label Text="{Binding Endereco.Logradouro}"></Label>
-    <Label Text="{Binding Endereco.Bairro}"></Label>
-    <Label Text="{Binding Endereco.Localidade}"></Label>
-    <Label Text="{Binding Endereco.Uf}"></Label>
+    <Entry Text="{Binding Cep}" Placeholder="Digite o seu CEP" />
+    <Button Text="Buscar" Command="{Binding BuscarCommand}" />
+    <Label Text="{Binding Endereco}" />
 
   </StackLayout>
 
