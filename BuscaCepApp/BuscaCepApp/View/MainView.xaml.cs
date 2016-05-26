@@ -14,9 +14,9 @@ namespace BuscaCepApp.View
                 await Application.Current.MainPage.Navigation.PushAsync(new LogView());
             };
             
-            #if DEBUG
-            CepEntry.Text = "20550165";
-            #endif
+            //#if DEBUG
+            //CepEntry.Text = "20550165";
+            //#endif
         }
     }
 }
