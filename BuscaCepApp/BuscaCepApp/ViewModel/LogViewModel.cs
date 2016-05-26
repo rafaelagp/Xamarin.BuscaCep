@@ -1,14 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using BuscaCepApp.Model;
 
 namespace BuscaCepApp.ViewModel
 {
-    public class LogViewModel : INotifyPropertyChanged
+    public class LogViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public IEnumerable<Endereco> Enderecos { get; set; } 
     }
 }

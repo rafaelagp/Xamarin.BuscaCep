@@ -5,6 +5,10 @@ namespace BuscaCepApp.Model
 {
     public class Endereco : INotifyPropertyChanged
     {
+        #region Propriedades
+
+        public int Id { get; set; }
+
         private string _cep;
         public string Cep
         {
@@ -12,7 +16,7 @@ namespace BuscaCepApp.Model
             set
             {
                 _cep = value;
-                OnPropertyChanged(nameof(_cep));   
+                OnPropertyChanged(nameof(_cep));
             }
         }
 
@@ -60,6 +64,15 @@ namespace BuscaCepApp.Model
             }
         }
 
+        public string EnderecoFormatado
+        {
+            get { return ToString(); }
+        }
+
+        #endregion
+
+        #region Eventos e Métodos
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -77,5 +90,7 @@ namespace BuscaCepApp.Model
             enderecoString.AppendLine(Localidade + ", " + Uf);
             return enderecoString.ToString();
         }
+
+        #endregion
     }
 }

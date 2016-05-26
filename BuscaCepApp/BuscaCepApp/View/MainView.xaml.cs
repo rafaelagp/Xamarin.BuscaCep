@@ -1,5 +1,4 @@
-﻿
-using BuscaCepApp.ViewModel;
+﻿using BuscaCepApp.ViewModel;
 using Xamarin.Forms;
 
 namespace BuscaCepApp.View
