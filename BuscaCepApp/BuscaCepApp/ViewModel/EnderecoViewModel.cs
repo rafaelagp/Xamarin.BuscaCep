@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Text;
 using System.Windows.Input;
 using BuscaCepApp.Api;
 using Xamarin.Forms;

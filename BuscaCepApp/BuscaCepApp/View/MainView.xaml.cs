@@ -9,6 +9,10 @@ namespace BuscaCepApp.View
         {
             InitializeComponent();
             BindingContext = new EnderecoViewModel();
+            LogToolbarButton.Clicked += async (sender, args) =>
+            {
+                await Application.Current.MainPage.Navigation.PushAsync(new LogView());
+            };
             
             #if DEBUG
             CepEntry.Text = "20550165";

@@ -84,10 +84,8 @@ namespace BuscaCepApp.Model
         public override string ToString()
         {
             var enderecoString = new StringBuilder();
-            enderecoString.AppendLine("CEP: " + Cep);
-            enderecoString.AppendLine(Logradouro);
-            enderecoString.AppendLine(Bairro);
-            enderecoString.AppendLine(Localidade + ", " + Uf);
+            enderecoString.AppendLine(Logradouro + " - " + Bairro);
+            enderecoString.AppendLine(Localidade + ", " + Uf + " - " + Cep);
             return enderecoString.ToString();
         }
 

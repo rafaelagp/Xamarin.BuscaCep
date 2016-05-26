@@ -1,4 +1,4 @@
-﻿
+﻿using BuscaCepApp.ViewModel;
 using Xamarin.Forms;
 
 namespace BuscaCepApp.View
@@ -8,6 +8,7 @@ namespace BuscaCepApp.View
         public LogView()
         {
             InitializeComponent();
+            BindingContext = new LogViewModel();
         }
     }
 }

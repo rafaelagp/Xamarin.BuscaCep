@@ -8,9 +8,9 @@
     <ListView ItemsSource="{Binding Enderecos}">
       <ListView.ItemTemplate>
         <DataTemplate>
-          <TextCell>
-            
-          </TextCell>
+          <ViewCell>
+            <Label Text="{Binding EnderecoFormatado}" />
+          </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
