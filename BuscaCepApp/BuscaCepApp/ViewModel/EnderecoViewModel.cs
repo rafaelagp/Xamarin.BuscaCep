@@ -26,8 +26,13 @@ namespace BuscaCepApp.ViewModel
         {
             BuscarCommand = new Command(async () =>
             {
-                var endereco = await ViaCepApi.GetAsync(Cep);
-                Endereco = string.IsNullOrEmpty(endereco?.Cep) ? "CEP não encontrado!" : endereco.ToString();
+                if (string.IsNullOrEmpty(Cep) || Cep.Length < 8 || Cep.Length > 8)
+                    Endereco = "CEP inválido.";
+                else
+                {
+                    var endereco = await ViaCepApi.GetAsync(Cep);
+                    Endereco = string.IsNullOrEmpty(endereco?.Cep) ? "CEP não encontrado!" : endereco.ToString();
+                }
             });
         }
 
