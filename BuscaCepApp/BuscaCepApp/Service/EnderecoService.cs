@@ -17,7 +17,7 @@ namespace BuscaCepApp.Service
 
         public IEnumerable<Endereco> Listar()
         {
-            var resultado = _repositorio.Table<Endereco>().ToListAsync().Result;
+            var resultado = _repositorio.Table<Endereco>().ToListAsync()?.Result;
             return resultado;
         }
 
