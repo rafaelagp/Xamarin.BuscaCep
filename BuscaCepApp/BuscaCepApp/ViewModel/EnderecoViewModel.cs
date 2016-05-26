@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Input;
 using BuscaCepApp.Api;
+using BuscaCepApp.Service;
 using Xamarin.Forms;
 
 namespace BuscaCepApp.ViewModel
@@ -30,7 +31,14 @@ namespace BuscaCepApp.ViewModel
                 else
                 {
                     var endereco = await ViaCepApi.GetAsync(Cep);
-                    Endereco = string.IsNullOrEmpty(endereco?.Cep) ? "CEP não encontrado!" : endereco.ToString();
+
+                    if (string.IsNullOrEmpty(endereco?.Cep))
+                        Endereco = "CEP não encontrado!";
+                    else
+                    {
+                        Endereco = endereco.ToString();
+                        new EnderecoService().Inserir(endereco);
+                    }
                 }
             });
         }
