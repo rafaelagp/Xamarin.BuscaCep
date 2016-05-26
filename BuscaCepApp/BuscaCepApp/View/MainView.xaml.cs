@@ -9,6 +9,10 @@ namespace BuscaCepApp.View
         {
             InitializeComponent();
             BindingContext = new EnderecoViewModel();
+            
+            #if DEBUG
+            CepEntry.Text = "20550165";
+            #endif
         }
     }
 }
